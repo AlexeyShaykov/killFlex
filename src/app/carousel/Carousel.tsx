@@ -2,6 +2,7 @@
 
 import * as m from 'motion/react-m'
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 
 import { useCarouselStore } from '@/store/carousel.store'
 import { mediaData } from '@/media/media.data'
@@ -15,13 +16,20 @@ const Carousel = () => {
 	const { activeCardId, setActiveCardId } = useCarouselStore()
 	const [rotateAngle, setRotateAngle] = useState(0)
 
+	const router = useRouter();
+
 
 	const updateActiveCard = (id: number) => {
-		if (id === activeCardId) return;
+		const newIndex = getCardIndex(id)
+
+		if (id === activeCardId) {
+			const slug = mediaData[newIndex].slug
+			router.push(`/media/${slug}`)
+			return
+		}
 	
 		const totalCards = mediaData.length
 		const oldIndex = getCardIndex(activeCardId)
-		const newIndex = getCardIndex(id)
 
 		let diff = newIndex - oldIndex
 
