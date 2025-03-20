@@ -9,7 +9,7 @@ const Header = () => {
   const pathname = usePathname()
 
   return (
-    <header className="px-6 py-7 flex justify-between items-center">
+    <header className="px-6 py-7 flex justify-between items-center relative z-1">
       <div className="flex space-x-4 items-center">
         <Grip className="transition-colors hover:text-primary cursor-pointer" />
         {!pathname.includes('/media/') && <Menu className="transition-colors hover:text-primary cursor-pointer" />}
