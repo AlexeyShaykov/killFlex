@@ -1,6 +1,7 @@
 'use client'
 
-import { AnimatePresence, m } from 'framer-motion'
+import * as m from "motion/react-m";
+
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -9,14 +10,22 @@ import { IVideo } from '@/media/media.types'
 import { episodeAnimation } from '../animation'
 
 interface Props {
-	episode: IVideo
+	episode: IVideo;
+	index: number;
 }
 
-const EpisodeItem = ({ episode }: Props) => {
+const EpisodeItem = ({ episode, index }: Props) => {
 	const [isWhiteOverlay, setIsWhiteOverlay] = useState(false)
 
 	return (
-		<button
+		<m.button
+			variants={episodeAnimation}
+			transition={{
+				duration: 1.5,
+				type: 'spring',
+				bounce: 0.27
+			}}
+			custom={index}
 		>
 			<Image
 				src={episode.poster}
@@ -30,7 +39,7 @@ const EpisodeItem = ({ episode }: Props) => {
 				<div>{episode.title}</div>
 				<div className="opacity-50">• {episode.duration}m</div>
 			</div>
-		</button>
+		</m.button>
 	)
 };
 

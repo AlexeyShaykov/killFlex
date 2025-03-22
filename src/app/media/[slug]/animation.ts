@@ -14,6 +14,10 @@ export const episodesAnimation: Variants = {
 }
 
 export const episodeAnimation: Variants = {
+	// hidden: (index: number) => ({
+	// 	opacity: index === 0 ? 0.4 : 0,
+	// 	x: 200,
+	// }),
 	hidden: { opacity: 0, x: 200 },
 	visible: {
 		opacity: 1,
