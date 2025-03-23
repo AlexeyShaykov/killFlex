@@ -7,7 +7,7 @@ const Products = () => {
     <m.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.8 }}
       className="relative"
     >
       <div className="absolute bottom-10 left-2.5">

@@ -3,7 +3,7 @@ import { menuData } from './menu.data';
 
 const Menu = () => {
   return (
-    <nav className="menu">
+    <nav>
       <ul className="flex items-center gap-10 flex-wrap">
         {menuData.map((item, index) => (
           <li key={index}>

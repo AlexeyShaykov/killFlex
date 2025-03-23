@@ -1,7 +1,7 @@
 'use client'
 
 import * as m from 'motion/react-m'
-import { useLayoutEffect, useState } from 'react'
+import { useEffect, useLayoutEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 
 import { useCarouselStore } from '@/store/carousel.store'
@@ -16,12 +16,19 @@ const getCardIndex = (cardId: number) =>
 const Carousel = () => {
 	const { activeCardId, setActiveCardId } = useCarouselStore()
 	const [rotateAngle, setRotateAngle] = useState(0)
-	const { changeState, resetState } = useMainAnimationStore();
+	const { changeState, resetState, isHideOtherCards } = useMainAnimationStore();
 
 	const router = useRouter();
 
 	useLayoutEffect(() => {
 		resetState();
+		setActiveCardId(4);
+	}, []);
+
+	useEffect(() => {
+		mediaData.forEach(media => {
+			router.prefetch(`/media/${media.slug}`)
+		})
 	}, []);
 
 
@@ -29,15 +36,17 @@ const Carousel = () => {
 		const newIndex = getCardIndex(id)
 
 		if (id === activeCardId) {
+			const slug = mediaData[newIndex].slug
+			// router.prefetch(`/media/${slug}`)
 			changeState('isNewPageAnimation', true)
+			changeState('isHideOtherCards', true)
 			setTimeout(() => {
 				changeState('isHideHeading', true)
 			}, 600);
 
 			setTimeout(() => {
-				const slug = mediaData[newIndex].slug
 				router.push(`/media/${slug}`)
-			}, 1000);
+			}, 650);
 			return
 		}
 	
@@ -66,10 +75,12 @@ const Carousel = () => {
 			}}
 			animate={{
 				rotate: rotateAngle,
+				translateY: isHideOtherCards ? 200 : 0,
 			}}
 			transition={{
 				type: 'keyframes',
-				duration: 0.5,
+				duration: isHideOtherCards ? 1 : 0.5,
+				ease: 'easeInOut'
 			}}
 		>
 			{mediaData.map((media, index) => (

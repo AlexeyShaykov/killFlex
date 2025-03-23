@@ -29,6 +29,7 @@ const Episodes = ({ mediaItem }: Props) => {
 				}}
 				transition={{
 					duration: 0.6,
+					delay: 1.2,
 				}}
 				className="flex items-center"
 			>

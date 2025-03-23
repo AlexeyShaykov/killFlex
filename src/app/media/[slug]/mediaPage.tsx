@@ -32,35 +32,29 @@ const MediaPage = ({ mediaItem }: IMediaPage) => {
   const backgroundImage = getBackgroundImage(srcSet);
 
   const style: CSSProperties = {
-    height: 560,
-    width: "100%",
-    backgroundImage,
-    transformStyle: "preserve-3d",
-  };
+		height: 540,
+		width: '100%',
+		backgroundImage,
+		transformStyle: 'preserve-3d'
+	}
 
   return (
     <div style={{ perspective: "1500px" }}>
-      <m.div
-          initial={{
-            rotateX: -180 ,
-          }}
-          animate={{
-            rotateX: 0,
-          }}
-          transition={{
-            type: "keyframes",
-            duration: 1.5,
-            ease: "easeIn",
-          }}
-      >
         <m.div
           initial={{
-            clipPath: "insert(50% 50% 50% 50%)",
+            clipPath: "inset(6.5% 40.5% round 20px)",
+            rotateX: 89,
+            opacity: 0.3,
+            translateY: 92,
           }}
           animate={{
-            clipPath: "insert(0% 0% 0% 0%)",
+            clipPath: "inset(0% 0% 0% 0%)",
+            rotateX: 0,
+            opacity: 1,
+            translateY: 0,
           }}
           transition={{
+            type: 'keyframes',
             duration: 1.5,
             ease: "easeIn",
           }}
@@ -73,7 +67,6 @@ const MediaPage = ({ mediaItem }: IMediaPage) => {
           </div>
         </m.div>
         <Episodes mediaItem={mediaItem} />
-      </m.div>
     </div>
   );
 };

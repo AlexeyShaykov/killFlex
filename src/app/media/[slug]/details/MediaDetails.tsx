@@ -13,7 +13,7 @@ const MediaDetails = ({ mediaItem }: TMediaDetails) => {
       <m.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
         className="flex gap-5 items-center"
       >
         {genres.map((genre) => (
@@ -28,7 +28,7 @@ const MediaDetails = ({ mediaItem }: TMediaDetails) => {
       <m.h1
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.6, delay: 0.8 }}
         className="text-6xl font-bold text-white mb-5"
         style={{ textShadow: "1px 1px 3px rgba(0, 0, 0, 0.3)" }}
       >
@@ -37,7 +37,7 @@ const MediaDetails = ({ mediaItem }: TMediaDetails) => {
       <m.div 
         initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 1 }}
         className="flex gap-5 items-center">
         <div
           className="text-2xl font-semibold text-white"
