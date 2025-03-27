@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import * as m from "motion/react-m";
-import { useState } from 'react'
+import * as m from 'motion/react-m';
+import { useState } from 'react';
 
-import { IMediaItem, IVideo } from '@/media/media.types'
+import { IMediaItem, IVideo } from '@/media/media.types';
 
-import { episodesAnimation } from '../animation'
+import { episodesAnimation } from '../animation';
 
-import EpisodeItem  from './EpisodeItem'
+import EpisodeItem from './EpisodeItem';
 
 interface Props {
-	mediaItem: IMediaItem
+	mediaItem: IMediaItem;
 }
 
 const Episodes = ({ mediaItem }: Props) => {
-	const [currentSeason] = useState(mediaItem.seasons[0])
+	const [currentSeason] = useState(mediaItem.seasons[0]);
 
 	return (
 		<div className="px-8 py-6">
@@ -33,9 +33,7 @@ const Episodes = ({ mediaItem }: Props) => {
 				}}
 				className="flex items-center"
 			>
-				<h2 className="border-r border-r-slate-400/5 pr-2 text-lg font-medium">
-					Episodes
-				</h2>
+				<h2 className="border-r border-r-slate-400/5 pr-2 text-lg font-medium">Episodes</h2>
 				<div className="ml-2 text-sm opacity-20">{currentSeason.title}</div>
 			</m.div>
 
@@ -54,7 +52,7 @@ const Episodes = ({ mediaItem }: Props) => {
 				))}
 			</m.div>
 		</div>
-	)
+	);
 };
 
 export default Episodes;

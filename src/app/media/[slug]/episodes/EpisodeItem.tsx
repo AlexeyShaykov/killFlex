@@ -1,13 +1,12 @@
-'use client'
+'use client';
 
-import * as m from "motion/react-m";
+import * as m from 'motion/react-m';
+import Image from 'next/image';
+import { useState } from 'react';
 
-import Image from 'next/image'
-import { useState } from 'react'
+import { IVideo } from '@/media/media.types';
 
-import { IVideo } from '@/media/media.types'
-
-import { episodeAnimation } from '../animation'
+import { episodeAnimation } from '../animation';
 
 interface Props {
 	episode: IVideo;
@@ -15,7 +14,7 @@ interface Props {
 }
 
 const EpisodeItem = ({ episode, index }: Props) => {
-	const [isWhiteOverlay, setIsWhiteOverlay] = useState(false)
+	const [isWhiteOverlay, setIsWhiteOverlay] = useState(false);
 
 	return (
 		<m.button
@@ -23,7 +22,7 @@ const EpisodeItem = ({ episode, index }: Props) => {
 			transition={{
 				duration: 1.5,
 				type: 'spring',
-				bounce: 0.27
+				bounce: 0.27,
 			}}
 			custom={index}
 		>
@@ -40,7 +39,7 @@ const EpisodeItem = ({ episode, index }: Props) => {
 				<div className="opacity-50">• {episode.duration}m</div>
 			</div>
 		</m.button>
-	)
+	);
 };
 
 export default EpisodeItem;

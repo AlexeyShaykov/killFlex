@@ -1,17 +1,27 @@
 "use client";
 
+import { useEffect, useState } from 'react';
 import { Bell, Grip, Search } from "lucide-react";
 import Image from "next/image";
-import Menu from "./Menu";
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 
-const Header = () => {
-  const pathname = usePathname();
+import Menu from "./Menu";
 
-  const isOnMediaPage = pathname.includes("/media/");
+const checkMediaPath = (pathname: string | null) => {
+	return !pathname?.includes('/media/')
+}
 
-  const iconColor = isOnMediaPage ? "#fff" : "#000";
+const Header = ({ pathname }: { pathname: string | null }) => {
+  const [isShowMenu, setIsShowMenu] = useState(checkMediaPath(pathname))
+
+	const clientPathName = usePathname()
+
+	useEffect(() => {
+		setIsShowMenu(checkMediaPath(clientPathName))
+	}, [clientPathName])
+
+  const iconColor = isShowMenu ? "#000" : "#fff";
 
   return (
     <header className="px-6 py-7 flex justify-between items-center relative z-1">
@@ -22,7 +32,7 @@ const Header = () => {
             className="transition-colors hover:text-primary cursor-pointer"
           />
         </Link>
-        {!isOnMediaPage && <Menu />}
+        {isShowMenu && <Menu />}
       </div>
       <div className="flex space-x-4 items-center">
         <Search color={iconColor} className="transition-colors hover:text-primary cursor-pointer" />

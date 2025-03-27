@@ -1,13 +1,15 @@
+import { headers } from 'next/headers'
 import type { PropsWithChildren } from "react";
 
 import Header from "./header/Header";
 
-const MainWrapper = ({ children }: PropsWithChildren) => {
-
+const MainWrapper = async ({ children }: PropsWithChildren) => {
+	const headerList = await headers()
+	const pathname = headerList.get('x-current-path')
 
   return (
     <div>
-      <Header />
+      <Header pathname={pathname} />
       {children}
     </div>
   )
