@@ -1,3 +1,5 @@
+import PageConfig from '@/config/page.config';
+
 export interface IMenuItem {
   name: string;
   url: string;
@@ -6,18 +8,18 @@ export interface IMenuItem {
 export const menuData: IMenuItem[] = [
   {
     name: "Home",
-    url: "/",
+    url: PageConfig.HOME,
   },
   {
     name: "Movies",
-    url: "/movies",
+    url: PageConfig.MOVIES
   },
   {
     name: "TV shows",
-    url: "/tv-shows", 
+    url: PageConfig.TV_SHOWS 
   },
   {
     name: "Watchlist",
-    url: "/watchlist",
+    url: PageConfig.WATCHLIST,
   }
 ]

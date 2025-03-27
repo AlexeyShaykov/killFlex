@@ -5,13 +5,14 @@ import * as m from 'motion/react-m';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
-import { mediaData } from '@/media/media.data';
 import { IMediaItem } from '@/media/media.types';
 
 import { useCarouselStore } from '@/store/carousel.store';
 import { useMainAnimationStore } from '@/store/main-animation.store';
 
 import CarouselItemDetail from './CarouselItemDetail';
+import useCarouselItemAngle from './hooks/useCarouselItemAngle';
+import useCarouselItemZIndex from './hooks/useCarouselItemZIndex';
 
 interface Props {
 	index: number;
@@ -22,26 +23,21 @@ interface Props {
 const CarouselItem = ({ item, index, updateActiveCard }: Props) => {
 	const { activeCardId } = useCarouselStore();
 	const { isNewPageAnimation } = useMainAnimationStore();
+	const { radius, angle } = useCarouselItemAngle({ index });
 
 	const isActive = activeCardId === item.id;
-
-	const angleStep = 360 / mediaData.length;
-	const angle = -90 + index * angleStep;
-	const radius = 430;
 
 	const isActiveNewPageAnimation = isNewPageAnimation && isActive;
 	const isNotActiveNewPageAnimation = isNewPageAnimation && !isActive;
 
-	const activeIndex = mediaData.findIndex(media => media.id === activeCardId);
-	const distanceFromActive = index - activeIndex;
-	const zIndex = isActive ? 20 : 10 - Math.abs(distanceFromActive);
+	const { zIndex } = useCarouselItemZIndex({ isActive, index });
 
 	return (
 		<div
 			className="absolute top-1/2 left-1/2"
 			style={{
 				transform: `translate(-50%, -50%) rotate(${angle}deg) translate(0, -${radius}px)`,
-				zIndex: isActive ? 1 : 0,
+				zIndex,
 				perspective: '1000px',
 			}}
 		>
