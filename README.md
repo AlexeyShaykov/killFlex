@@ -8,6 +8,7 @@ This repository contains all the necessary code and resources to this [amazing d
 - Next js - 15
 - Tailwind - 4.0
 - Zustand
+- Framer-motion
 
 ## Installation 🚀
 
@@ -33,14 +34,14 @@ To get started with KillFlex, follow these steps:
 
 ## Usage 🚀
 
-To run the project, use the following command:
+Open localhost:3000 in your browser and enjoy.
 
 
 ## Technologies 🔧
 
 ![React](https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-black?logo=next.js&logoColor=white)
-![Zustand](https://img.shields.io/badge/react%20zustand-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Framer Motion](https://img.shields.io/badge/framer_motion-ffca28?style=for-the-badge&logo=framer&logoColor=%23ffffff&color=%237178f6)
 ![Tailwindcss](https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss)
-![Dribble](https://img.shields.io/badge/Dribbble-EA4C89?logo=dribbble&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=fff)]
+![GitHub Copilot](https://img.shields.io/badge/GitHub%20Copilot-000?logo=githubcopilot&logoColor=fff)]
+![ChatGPT](https://img.shields.io/badge/ChatGPT-74aa9c?logo=openai&logoColor=white)]
