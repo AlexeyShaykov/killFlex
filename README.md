@@ -1,5 +1,7 @@
 # KillFlex
 
+https://github.com/user-attachments/assets/10502e9b-73ba-4c87-abe2-f31f3e80129d
+
 KillFlex is a project designed to kill Netflix. 
 This repository contains all the necessary code and resources to this [amazing design](https://dribbble.com/shots/24181037-Amuxo-On-demand-streaming-platform-design) 
 
