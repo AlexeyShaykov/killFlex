@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import * as m from 'motion/react-m';
+import { m } from 'framer-motion';
 import Image from 'next/image';
 
 const Products = () => {

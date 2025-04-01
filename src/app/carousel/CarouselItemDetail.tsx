@@ -1,5 +1,5 @@
 import { Star, TvMinimal } from 'lucide-react';
-import * as m from 'motion/react-m';
+import { m } from 'framer-motion';
 
 import { IMediaItem } from '@/media/media.types';
 
