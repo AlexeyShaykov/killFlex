@@ -2,12 +2,12 @@ import { ChevronRight } from 'lucide-react';
 import { m } from 'framer-motion';
 import Image from 'next/image';
 
+import { parentProductAnimation, firstChildProductAnimation, secondChildProductAnimation } from './product.animation';
+
 const Products = () => {
 	return (
 		<m.div
-			initial={{ opacity: 0, y: 10 }}
-			animate={{ opacity: 1, y: 0 }}
-			transition={{ duration: 0.5, delay: 0.8 }}
+			{...parentProductAnimation}
 			className="relative"
 		>
 			<div className="absolute bottom-10 left-2.5">
@@ -19,35 +19,11 @@ const Products = () => {
 					className="relative z-3 rounded-lg bg-white"
 				/>
 				<m.div
-					initial={{
-						top: 0,
-					}}
-					animate={{
-						top: [-25, -20],
-					}}
-					transition={{
-						duration: 0.5,
-						delay: 0.2,
-						type: 'spring',
-						stiffness: 100,
-						damping: 20,
-					}}
+					{...firstChildProductAnimation}
 					className="absolute left-0.5 z-2 h-full w-full scale-90 rounded-lg bg-white/90"
 				/>
 				<m.div
-					initial={{
-						top: 0,
-					}}
-					animate={{
-						top: [-45, -38],
-					}}
-					transition={{
-						duration: 0.7,
-						delay: 0.2,
-						type: 'spring',
-						stiffness: 100,
-						damping: 20,
-					}}
+					{...secondChildProductAnimation}
 					className="absolute left-1 z-1 h-full w-full scale-80 rounded-lg bg-white/80"
 				/>
 			</div>

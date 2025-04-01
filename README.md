@@ -1,20 +1,21 @@
 # KillFlex
 
-KillFlex is a project designed to [briefly describe the purpose of your project]. This repository contains all the necessary code and resources to [explain what the project does].
+KillFlex is a project designed to kill Netflix. 
+This repository contains all the necessary code and resources to this [amazing design](https://dribbble.com/shots/24181037-Amuxo-On-demand-streaming-platform-design) 
 
-## Features
+## Features 🚀
 
-- [Feature 1]
-- [Feature 2]
-- [Feature 3]
+- Next js - 15
+- Tailwind - 4.0
+- Zustand
 
-## Installation
+## Installation 🚀
 
 To get started with KillFlex, follow these steps:
 
 1. Clone the repository:
   ```bash
-  git clone https://github.com/your-username/killflex.git
+  git clone https://github.com/AlexeyShaykov/killFlex.git
   ```
 2. Navigate to the project directory:
   ```bash
@@ -22,10 +23,15 @@ To get started with KillFlex, follow these steps:
   ```
 3. Install dependencies:
   ```bash
-  [insert installation command, e.g., npm install]
+  npm install
   ```
 
-## Usage
+3. Run code:
+  ```bash
+  npm run dev
+  ```
+
+## Usage 🚀
 
 To run the project, use the following command:
 
