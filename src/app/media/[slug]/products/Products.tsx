@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { m } from 'framer-motion';
+import { motion as m } from 'motion/react';
 import Image from 'next/image';
 
 import { parentProductAnimation, firstChildProductAnimation, secondChildProductAnimation } from './product.animation';

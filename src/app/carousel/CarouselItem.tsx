@@ -1,7 +1,6 @@
 'use client';
 
-import { AnimatePresence } from 'motion/react';
-import { m } from 'framer-motion';
+import { AnimatePresence, motion as m } from 'motion/react';
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 

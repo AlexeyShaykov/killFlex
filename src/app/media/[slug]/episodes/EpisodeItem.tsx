@@ -1,12 +1,13 @@
 'use client';
 
-import { m } from 'framer-motion';
+import { AnimatePresence, motion as m } from 'motion/react';
 import Image from 'next/image';
 import { useState } from 'react';
 
 import { IVideo } from '@/media/media.types';
 
 import { episodeAnimation } from '../animation';
+import { useVideoPlayerStore } from '@/store/video-player.store';
 
 interface Props {
 	episode: IVideo;
@@ -14,7 +15,17 @@ interface Props {
 }
 
 const EpisodeItem = ({ episode, index }: Props) => {
-	const [isWhiteOverlay, setIsWhiteOverlay] = useState(false);
+	const { setVideoURL } = useVideoPlayerStore()
+		const [isWhiteOverlay, setIsWhiteOverlay] = useState(false)
+	
+		const clickHandler = (videoUrl: string) => {
+			setIsWhiteOverlay(true)
+			setVideoURL(videoUrl)
+	
+			setTimeout(() => {
+				setIsWhiteOverlay(false)
+			}, 250)
+		}
 
 	return (
 		<m.button
@@ -25,7 +36,19 @@ const EpisodeItem = ({ episode, index }: Props) => {
 				bounce: 0.27,
 			}}
 			custom={index}
+			onClick={clickHandler.bind(null, episode.videoUrl)}
+			className="relative"
 		>
+			<AnimatePresence>
+				{isWhiteOverlay && (
+					<m.div
+						className="absolute inset-0 z-10 bg-white/70 opacity-50 h-[136] w-[243] rounded-lg overflow-hidden"
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+					/>
+				)}
+			</AnimatePresence>
 			<Image
 				src={episode.poster}
 				alt={episode.title}

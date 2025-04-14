@@ -1,6 +1,6 @@
 'use client';
 
-import { m } from 'framer-motion';
+import { motion as m } from 'motion/react';
 
 import { useMainAnimationStore } from '@/store/main-animation.store';
 

@@ -1,4 +1,6 @@
-import { m } from 'framer-motion';
+'use client'
+
+import { AnimatePresence, m } from 'motion/react'
 
 import { IMediaItem } from '@/media/media.types';
 

@@ -1,4 +1,4 @@
-import { m } from 'framer-motion';
+import { motion as m } from 'motion/react';
 
 import { IMediaItem } from '@/media/media.types';
 

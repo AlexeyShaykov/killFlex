@@ -1,6 +1,6 @@
 'use client';
 
-import { m } from 'framer-motion';
+import {  motion as m } from 'motion/react';
 import { useState } from 'react';
 
 import { IMediaItem, IVideo } from '@/media/media.types';
