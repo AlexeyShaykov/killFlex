@@ -1,14 +1,17 @@
-'use client'
+'use client';
 
-import { AnimatePresence, m } from 'motion/react'
+import { AnimatePresence, m } from 'motion/react';
 
 import { IMediaItem } from '@/media/media.types';
+
+import { useVideoPlayerStore } from '@/store/video-player.store';
 
 import { backdropAnimation } from './animation';
 import MediaDetails from './details/MediaDetails';
 import Episodes from './episodes/Episodes';
 import Products from './products/Products';
 import useMediaBackdrop from './useMediaBackdrop';
+import VideoPlayer from './video-player/VideoPlayer';
 
 interface IMediaPage {
 	mediaItem: IMediaItem;
@@ -16,9 +19,11 @@ interface IMediaPage {
 
 const MediaPage = ({ mediaItem }: IMediaPage) => {
 	const style = useMediaBackdrop(mediaItem);
+	const { videoURL } = useVideoPlayerStore();
 
 	return (
-		<div style={{ perspective: '1500px' }}>
+		<div style={{ perspective: '1500px', height: '100vh' }}>
+			<AnimatePresence>{videoURL && <VideoPlayer />}</AnimatePresence>
 			<m.div
 				{...backdropAnimation}
 				style={style}

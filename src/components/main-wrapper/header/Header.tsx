@@ -7,13 +7,15 @@ import { usePathname } from "next/navigation";
 import Link from 'next/link';
 
 import Menu from "./Menu";
+import { useVideoPlayerStore } from '@/store/video-player.store';
 
 const checkMediaPath = (pathname: string | null) => {
 	return !pathname?.includes('/media/')
 }
 
 const Header = ({ pathname }: { pathname: string | null }) => {
-  const [isShowMenu, setIsShowMenu] = useState(checkMediaPath(pathname))
+  const [isShowMenu, setIsShowMenu] = useState(checkMediaPath(pathname));
+  const { videoURL } = useVideoPlayerStore();
 
 	const clientPathName = usePathname()
 
@@ -22,6 +24,8 @@ const Header = ({ pathname }: { pathname: string | null }) => {
 	}, [clientPathName])
 
   const iconColor = isShowMenu ? "#000" : "#fff";
+
+  if (videoURL) return null;
 
   return (
     <header className="px-6 py-7 flex justify-between items-center relative z-1">
