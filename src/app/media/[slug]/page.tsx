@@ -5,22 +5,20 @@ import { mediaData } from '@/media/media.data';
 
 import MediaPage from './mediaPage';
 
-export const metaData: Metadata = {
+export const metadata: Metadata = {
 	title: 'Media',
-	description: 'Explore the latest media content',
-	openGraph: {
-		title: 'Media',
-		description: 'Explore the latest media content',
-	},
 };
 
-const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
-	const { slug } = await params;
-	const mediaItem = mediaData.find(item => item.slug === slug);
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+	const params = await props.params;
 
-	if (!mediaItem) return notFound();
+	const { slug } = params;
+
+	const mediaItem = mediaData.find(mediaItem => mediaItem.slug === slug);
+
+	if (!mediaItem) {
+		notFound();
+	}
 
 	return <MediaPage mediaItem={mediaItem} />;
-};
-
-export default Page;
+}
