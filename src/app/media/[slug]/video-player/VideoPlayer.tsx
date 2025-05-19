@@ -1,7 +1,7 @@
 'use client';
 
 import { ChevronLeft } from 'lucide-react';
-import { m } from 'motion/react';
+import { motion as m } from 'motion/react';
 import ReactPlayer from 'react-player';
 
 import { useVideoPlayerStore } from '@/store/video-player.store';
@@ -35,12 +35,19 @@ const VideoPlayer = () => {
 				>
 					<ChevronLeft />
 				</m.button>
-				<ReactPlayer
-					url={videoURL || ''}
-					controls
-					width="100%"
-					height="100%"
-				/>
+				<m.div
+					initial={{ opacity: 0, scale: 0.8 }}
+					animate={{ opacity: 1, scale: 1 }}
+					exit={{ opacity: 0, scale: 0.8 }}
+					transition={{ duration: 0.4 }}
+				>
+					<ReactPlayer
+						url={videoURL || ''}
+						controls
+						width="100%"
+						height="100%"
+					/> 
+				</m.div>
 			</div>
 		</m.div>
 	);

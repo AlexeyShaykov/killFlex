@@ -23,8 +23,6 @@ const Header = ({ pathname }: { pathname: string | null }) => {
 		setIsShowMenu(checkMediaPath(clientPathName))
 	}, [clientPathName])
 
-  const iconColor = isShowMenu ? "#000" : "#fff";
-
   if (videoURL) return null;
 
   return (
@@ -32,15 +30,14 @@ const Header = ({ pathname }: { pathname: string | null }) => {
       <div className="flex space-x-4 items-center">
         <Link href={"/"}>
           <Grip
-            color={iconColor}
             className="transition-colors hover:text-primary cursor-pointer"
           />
         </Link>
         {isShowMenu && <Menu />}
       </div>
       <div className="flex space-x-4 items-center">
-        <Search color={iconColor} className="transition-colors hover:text-primary cursor-pointer" />
-        <Bell color={iconColor} className="transition-colors hover:text-primary cursor-pointer" />
+        <Search className="transition-colors hover:text-primary cursor-pointer" />
+        <Bell className="transition-colors hover:text-primary cursor-pointer" />
         <Image
           src="/avatar.jpeg"
           alt="Avatar"

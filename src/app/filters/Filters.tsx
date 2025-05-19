@@ -14,7 +14,7 @@ const Filters = () => {
 				<button
 					key={index}
 					className={twMerge(
-						'cursor-pointer rounded-lg bg-transparent px-4 py-2 font-medium text-black transition-colors',
+						'cursor-pointer rounded-lg bg-transparent px-4 py-2 font-medium text-white transition-colors',
 						currentFilter === filter && 'bg-primary text-white',
 					)}
 					type="button"
